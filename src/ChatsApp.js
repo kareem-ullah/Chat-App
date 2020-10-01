@@ -27,7 +27,7 @@ class Chat extends Component {
         messages.push(obj);
         db.collection('msg').add(obj);
 
-        this.setState({ messages: messages, flag: !flag })
+        this.setState({ messages: messages, flag: !flag, text: '' })
     }
 
     delete = () => {
@@ -55,12 +55,12 @@ class Chat extends Component {
                         {
                             messages.map(item => {
                                 return item.name === 'you' ?
-
-                                    <div className="input2">{item.message}</div>
-                                    :
-
-                                    <div className="input1">{item.message}</div>
-
+                                    <p>
+                                        <div className="input2">{item.message}</div>
+                                    </p> :
+                                    <p>
+                                        <div className="input1">{item.message}</div>
+                                    </p>
 
                             })
 

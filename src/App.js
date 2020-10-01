@@ -40,15 +40,12 @@ class App extends Component {
           <Col lg={5} md={6} sm={12} xs={12} className="colum">
             <div className="divin">
               <div className="formdiv">
+                <Form>
+                  
+                  <input type="text" name="userName" className="inputname" placeholder="Enter Your Name" value={text}
+                    onChange={(e) => this.setState({ text: e.target.value })} />
 
-
-              
-                  <Form>
-                   <input type="text" name="userName" className="inputname"  placeholder="Enter Your Name" value={text}
-                    onChange={(e) => this.setState({ text: e.target.value })}/> 
-                
-
-              <button className="namebtn" onClick={this.homeToChat.bind(this)}>Next</button>
+                  <button className="namebtn" onClick={this.homeToChat.bind(this)}>Next</button>
                 </Form>
 
               </div>
