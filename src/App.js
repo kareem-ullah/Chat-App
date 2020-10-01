@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import History from './History';
-import { Container, Row, Col, Button, InputGroup, FormControl } from 'react-bootstrap'
+import { Container, Row, Col, Button, InputGroup, Form } from 'react-bootstrap'
 import './App.css';
 
 class App extends Component {
@@ -38,22 +38,21 @@ class App extends Component {
         </Row>
         <Row className="main-row">
           <Col lg={5} md={6} sm={12} xs={12} className="colum">
-            <span> Enter Name:</span>
-
             <div className="divin">
+              <div className="formdiv">
 
-              <InputGroup>
-                <FormControl
-                  type="text" name="userName" placeholder="Enter Your Name" value={text}
-                  onChange={(e) => this.setState({ text: e.target.value })} />
 
-                <InputGroup.Append>
-                  <Button variant="outline-info" onClick={this.homeToChat.bind(this)}>Next</Button>
-                </InputGroup.Append>
-              </InputGroup>
+              
+                  <Form>
+                   <input type="text" name="userName" className="inputname"  placeholder="Enter Your Name" value={text}
+                    onChange={(e) => this.setState({ text: e.target.value })}/> 
+                
 
+              <button className="namebtn" onClick={this.homeToChat.bind(this)}>Next</button>
+                </Form>
+
+              </div>
             </div>
-
           </Col>
         </Row>
 

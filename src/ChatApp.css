@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
 }
-.h2{
+.h2 {
   margin: 0px !important;
   text-align: center;
   padding: 10px 0px;
@@ -20,45 +20,42 @@
 }
 .colinput {
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
   height: 450px;
-  overflow: scroll;
+  overflow: scroll !important;
   padding-left: 30px !important;
   padding-right: 30px !important;
   background-color: rgb(61, 60, 60);
 }
-.userdiv{
+.userdiv {
   width: 100%;
   padding: 10px 20px;
-  /* padding-left: 10px; */
-  /* padding-right: 10px; */
   background-color: black;
-
 }
-.inputdiv{
+.inputdiv {
   padding: 1%;
-  background-color:white;
+  background-color: white;
   border-radius: 1em;
-
 }
 .coluser {
   display: flex;
   justify-content: center;
 }
-.col{
+.col {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 .input1 {
+  display: inline-block;
   outline: none;
   border-radius: 10px;
-  border: 5px inset grey;
+  border: 5px inset rgb(111, 111, 252);
   color: white;
   padding: 5px;
-
+  margin-top: 10px;
 }
 .input2 {
+  display: inline-block;
   text-align: right;
   outline: none;
   border-radius: 10px;
@@ -66,15 +63,27 @@
   color: white;
   margin-top: 10px;
   padding: 5px;
-
 }
 .usermessage {
   width: 90%;
   height: 60px;
-  /* margin: 30px 10px; */
   outline: none;
   border: none;
   font-size: 20px;
+}
+.chat-heade {
+  font-size: 24px;
+  font-weight: bold;
+}
+.btn{
+  width: 30px;
+    border: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.deleteImage{
+  height: 30px;
 }
 .sendbtn {
   margin: 0px 5px;

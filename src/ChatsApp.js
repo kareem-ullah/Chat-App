@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import firebase from './db';
-import image from './image/logo.png'
+import Logo from './image/logo.png';
+import Delete from './image/delete.png';
 import { Container, Row, Col, Button, } from 'react-bootstrap'
 import './ChatApp.css';
+// import { WASI } from 'wasi';
 // import { randomBytes } from 'crypto';
 
 const db = firebase.firestore();
@@ -23,10 +25,13 @@ class Chat extends Component {
             message: text
         };
         messages.push(obj);
-        db.collection('msg').add(obj)
+        db.collection('msg').add(obj);
 
         this.setState({ messages: messages, flag: !flag })
-        console.log(flag)
+    }
+
+    delete = () => {
+        this.setState({ messages: [] })
     }
     render() {
         const { text, messages } = this.state;
@@ -34,22 +39,28 @@ class Chat extends Component {
         return (
             <Container fluid className="Cont">
                 <Row className="main-div">
-                    <Col lg={6} md={6} sm={12} xs={12} className="h2">
-                        <h2>Welcome to LiveChat</h2>
+                    <Col lg={6} md={6} sm={12} xs={12} className="h2" >
+                        <div className="chat-header">
+                            Welcome to LiveChat
+                        <button className="btn">
+                                <img className="deleteImage" src={Delete} onClick={() => this.delete()} />
+                            </button>
+                        </div>
+
                     </Col>
                 </Row>
 
                 <Row className="main">
-                    <Col lg={6} md={6} sm={6} xs={12} className="colinput">
+                    <Col lg={6} md={6} sm={12} xs={12} className="colinput">
                         {
                             messages.map(item => {
                                 return item.name === 'you' ?
-                                    <p>
-                                        <div className="input2">{item.message}</div>
-                                    </p> :
-                                    <p>
-                                        <div className="input1">{item.message}</div>
-                                    </p>
+
+                                    <div className="input2">{item.message}</div>
+                                    :
+
+                                    <div className="input1">{item.message}</div>
+
 
                             })
 
@@ -64,7 +75,7 @@ class Chat extends Component {
                             <div className="inputdiv" >
                                 <input className="usermessage" type="text" placeholder="Type your message here..." value={text}
                                     onChange={(e) => this.setState({ text: e.target.value })} />
-                                <img className="sendImage" src={image} onClick={() => this.Send()} />
+                                <img className="sendImage" src={Logo} onClick={() => this.Send()} />
                             </div>
                         </div>
                         {/* <Button className="sendbtn">Send</Button> */}
